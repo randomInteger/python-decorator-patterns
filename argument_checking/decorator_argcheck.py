@@ -35,10 +35,13 @@ def example(a,b,c):
     print("Called example function with:", " ".join([a,b,c]))
 
 #Begin test section....
+#These are examples in the form of mock tests
 
 #This test should pass
 print("Test 1:  example is called with proper args")
 example("one","two","three")
+#If we did not assert...continue...
+print("Test 1: PASS.")
 
 #This test should raise an Exception which we will catch to continue
 print("\nTest 2: example is called with an arg of the wrong type")
@@ -46,9 +49,10 @@ try:
     example("1","2",3)
 except Exception as err:
     print("Test 2 caught an Exception:", str(err))
+    print("Test 2: PASS")
 finally:
     print("Continuing on, to Test 3 which should assert on empty args...")
 
 
-print("\nTest 3: example is called with no args at all...")
+print("\nTest 3: example is called with no args at all, we allow the exception to occur...")
 example()
